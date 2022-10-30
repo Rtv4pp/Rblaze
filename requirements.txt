@@ -1,8 +1,6 @@
 selenium
 requests
-time
 telegram
 python-telegram-bot
-os
 colorama
 bs4
