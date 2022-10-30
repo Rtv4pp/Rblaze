@@ -1,1 +1,7 @@
 selenium
+requests
+time
+telegram
+os
+colorama
+bs4
