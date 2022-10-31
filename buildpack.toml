@@ -1,0 +1,2 @@
+heroku buildpacks:publish heroku/chromedriver master
+heroku buildpacks:publish heroku/google-chrome master
