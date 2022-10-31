@@ -1,0 +1,6 @@
+telegram-0.0.1
+bs4
+python-telegram-bot
+requests
+selenium
+colorama
