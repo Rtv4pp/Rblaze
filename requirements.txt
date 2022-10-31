@@ -1,4 +1,4 @@
-telegram-0.0.1
+telegram
 bs4
 python-telegram-bot
 requests
