@@ -1,6 +1,0 @@
-selenium
-requests
-telegram
-python-telegram-bot
-colorama
-bs4
