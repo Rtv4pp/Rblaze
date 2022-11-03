@@ -14,6 +14,8 @@ from colorama import Fore, Back, Style, init
 chrome_options = Options()
 chrome_options.add_argument("-headless")
 nav = webdriver.Chrome(options = chrome_options)
+chrome_options.add_argument('--no-sandbox')
+chrome_options.add_argument('--disable-dev-shm-usage')    
 
 token = '5744690430:AAHdhSKGoDml-c-6jDoAXsTZrZ7py-uVryU'
 chat_id = '-1001896645285'
