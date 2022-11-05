@@ -36,10 +36,6 @@ foradogiro = 0
 semutilidade = 0
 
 
-os.system('cls') or None
-print(Fore.GREEN + 'BOT INICIADO!')
-print(Style.RESET_ALL)
-
 
 while True:
 
@@ -101,23 +97,17 @@ while True:
                             gale1 = 0
                             msg = '''❌LOSS'''
                             mensagem = bot.send_message(chat_id=chat_id, text=msg)
-                            print(Fore.RED + '==LOSS==')
-                            print(Style.RESET_ALL)
                             return
 
                         elif gale == 1 and num[0:5] == ['V', 'P', 'P', 'P', 'P']:
                             msg = '''✅GALE 1 GREEN no 🔴🍷🗿'''
                             mensagem = bot.send_message(chat_id=chat_id, text=msg)
-                            print(Fore.RED + '==GALE 1 WIN==')
-                            print(Style.RESET_ALL)
                             gale1 = 0
                             return
                         elif gale1 == 1 and num[0:5] == ['B', 'P', 'P', 'P', 'P']:
                             gale1 = 0
                             msg = '''✅GALE 1 GREEN no ⚪🍷🗿'''
                             mensagem = bot.send_message(chat_id=chat_id, text=msg)
-                            print(Fore.RED + '==LOSS==')
-                            print(Style.RESET_ALL)
                             return
 
                         elif num[0:5] == ['P', 'P', 'P', 'P', 'P']:
@@ -127,8 +117,6 @@ while True:
                             gale1 = 1
                             msg = '''GALE 1'''
                             mensagem = bot.send_message(chat_id=chat_id, text=msg)
-                            print(Fore.YELLOW + '==GALE 1==')
-                            print(Style.RESET_ALL)
                             return
 
 
@@ -190,8 +178,6 @@ Possivel entrada no 🔴
                         elif num[0:4] == ['V', 'V', 'V', 'V']:
                             msg = '''❌LOSS'''
                             mensagem = bot.send_message(chat_id=chat_id, text=msg)
-                            print(Fore.RED + '==LOSS==')
-                            print(Style.RESET_ALL)
                             return
 
 
@@ -203,14 +189,10 @@ Possivel entrada no 🔴
                         elif num[0:4] == ['P', 'V', 'V', 'V']:
                             msg = '''✅ GREEN no ⚫🍷🗿'''
                             mensagem = bot.send_message(chat_id=chat_id, text=msg)
-                            print(Fore.GREEN + '==WIN!!!==')
-                            print(Style.RESET_ALL)
                             return
                         elif num[0:4] == ['B', 'V', 'V', 'V']:
                             msg = '''✅ GREEN no ⚪🍷🗿'''
                             mensagem = bot.send_message(chat_id=chat_id, text=msg)
-                            print(Fore.GREEN + '==WIN!!!==')
-                            print(Style.RESET_ALL)
                             return
 
 
@@ -257,14 +239,10 @@ Possivel entrada no ⚫
                         elif  num[0:4] == ['V', 'B', 'V', 'V']:
                             msg = '''✅ GREEN no 🔴🍷🗿'''
                             mensagem = bot.send_message(chat_id=chat_id, text=msg)
-                            print(Fore.GREEN + '==WIN!!!==')
-                            print(Style.RESET_ALL)
                             return
                         elif  num[0:4] == ['B', 'B', 'V', 'V']:
                             msg = '''✅ GREEN no ⚪🍷🗿'''
                             mensagem = bot.send_message(chat_id=chat_id, text=msg)
-                            print(Fore.GREEN + '==WIN!!!==')
-                            print(Style.RESET_ALL)
                             return
 
 
@@ -276,8 +254,6 @@ Possivel entrada no ⚫
                         elif  num[0:4] == ['P', 'B', 'V', 'V']:
                             msg = '''❌LOSS'''
                             mensagem = bot.send_message(chat_id=chat_id, text=msg)
-                            print(Fore.RED + '==LOSS==')
-                            print(Style.RESET_ALL)
                             return
 
 
@@ -314,14 +290,10 @@ Possivel entrada no 🔴
                         if  num[0:4] == ['P', 'B', 'P', 'P']:
                             msg = '''✅ GREEN no ⚫🍷🗿'''
                             mensagem = bot.send_message(chat_id=chat_id, text=msg)
-                            print(Fore.GREEN + '==WIN!!!==')
-                            print(Style.RESET_ALL)
                             return
                         elif  num[0:4] == ['B', 'B', 'P', 'P']:
                             msg = '''✅ GREEN no ⚪🍷🗿'''
                             mensagem = bot.send_message(chat_id=chat_id, text=msg)
-                            print(Fore.GREEN + '==WIN!!!==')
-                            print(Style.RESET_ALL)
                             return
 
                         elif num[0:4] == ['V', 'B', 'P', 'P']:
@@ -331,8 +303,6 @@ Possivel entrada no 🔴
                             elif  num[0:4] == ['V', 'B', 'P', 'P']:
                                 msg = '''❌LOSS'''
                                 mensagem = bot.send_message(chat_id=chat_id, text=msg)
-                                print(Fore.RED + '==LOSS==')
-                                print(Style.RESET_ALL)
                                 return
 
                         elif num[0:3] == ['B', 'P', 'P']:
@@ -360,13 +330,10 @@ Possivel entrada no ⚫
     #==========================================FIM========================================#
             foradogiro = 0
             resultado(ray)
-            print(Fore.BLUE)
             print('Porcentagem preto:', porcentagemdepretoDivididoEmFloat)
             print('Porcentagem vermelho:', porcentagemdevermelhoDivididoEmFloat)
-            print(Style.RESET_ALL)
             print('Cores da rodada:',ray)
-            print(Fore.YELLOW + 'FIM DA RODADA!')
-            print(Style.RESET_ALL)
+            print('FIM DA RODADA!')
 
 
     except NameError as erro:
