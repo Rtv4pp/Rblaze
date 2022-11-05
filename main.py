@@ -34,7 +34,8 @@ pegaporcentagem.get('https://tipminer.com/blaze/double')
 
 foradogiro = 0
 semutilidade = 0
-
+msg = '''===BOT INICIADO!==='''
+mensagem = bot.send_message(chat_id=chat_id, text=msg)
 
 
 while True:
