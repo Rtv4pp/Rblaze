@@ -56,13 +56,8 @@ while True:
             r = response.json()
 
             ray = []
-        except NameError as erro:
-            semutilidade = 1
-        except Exception as erro:
-            semutilidade = 0
-
-        for x in range(len(r)):
-            val = r[x]['color']
+            for x in range(len(r)):
+                val = r[x]['color']
             if val == 1:
                 val = 'V'
 
@@ -73,6 +68,12 @@ while True:
                 val = 'B'
 
             ray.append(val)
+
+
+        except NameError as erro:
+            semutilidade = 1
+        except Exception as erro:
+            semutilidade = 0
 
         pegaPretosSeguidoDividido = "".join(re.findall("\d+", pegaPretosSeguido))
         pegaPretosSeguidoDivididoEmFloat = float(pegaPretosSeguidoDividido)
