@@ -36,7 +36,6 @@ foradogiro = 0
 semutilidade = 0
 
 
-os.system('cls') or None
 print(Fore.GREEN + 'BOT INICIADO!')
 print(Style.RESET_ALL)
 
