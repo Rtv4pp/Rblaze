@@ -14,7 +14,13 @@ from colorama import Fore, Back, Style, init
 chrome_options = Options()
 chrome_options.add_argument('--headless')
 chrome_options.add_argument('--no-sandbox')
-
+chrome_options.add_argument('--disable-dev-shm-usage')  
+chrome_options.add_argument('--disable-gpu')
+chrome_options.add_argument('--window-size=1920,1080')
+chrome_options.add_argument('--ignore-certificate-errors-spki-list')
+chrome_options.add_argument('--ignore-ssl-errors')
+chrome_options.add_argument("--disable-blink-features=AutomationControlled")
+chrome_options.add_argument('log-level=3')
 
 token = '5744690430:AAHdhSKGoDml-c-6jDoAXsTZrZ7py-uVryU'
 chat_id = '-1001896645285'
@@ -28,10 +34,11 @@ pegaporcentagem = webdriver.Chrome(options = chrome_options)
 pegaporcentagem.get('https://tipminer.com/blaze/double')
 
 
-foradogiro = 1
+foradogiro = 0
 semutilidade = 0
 
 
+os.system('cls') or None
 print(Fore.GREEN + 'BOT INICIADO!')
 print(Style.RESET_ALL)
 
@@ -39,7 +46,7 @@ while True:
 
     try:
 
-        #resulROOL = nav.find_element(By.XPATH, '//*[@id="roulette-timer"]/div[1]').text
+        resulROOL = nav.find_element(By.XPATH, '//*[@id="roulette-timer"]/div[1]').text
 
         #Aqui a gente pega a porcentagem de pretos e vermelhos para utlizar no bot.
         porcentagemdepreto = pegaporcentagem.find_element(By.XPATH, '//*[@id="app"]/div/div/div[1]/div/div[3]/div/div[2]/div[2]/h5').text
@@ -79,7 +86,9 @@ while True:
         porcentagemdevermelhoDivididoEmFloat = float(porcentagemdevermlehoDividido) #Aqui convertemos o numero que pegamos em float
         gale1 = 0
 
-        if foradogiro == 1:
+        if resulROOL == 'Girando...':
+            foradogiro = 1
+        if foradogiro == 1 and resulROOL != 'Girando...':
 
             def resultado(num):
 
@@ -349,6 +358,7 @@ Possivel entrada no ⚫
                                    return
                                 return
     #==========================================FIM========================================#
+            foradogiro = 0
             resultado(ray)
             print(Fore.BLUE)
             print('Porcentagem preto:', porcentagemdepretoDivididoEmFloat)
