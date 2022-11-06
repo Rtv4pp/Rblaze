@@ -83,6 +83,9 @@ while True:
         gale1 = 0
 
         if resulROOL == 'Girando...':
+            msg ='''Porcentagem de vermelho:''' porcentagemdevermelhoDivididoEmFloat,
+'''Porcentagem de preto:''' porcentagemdepretoDivididoEmFloat
+            mensagem = bot.send_message(chat_id=chat_id, text=msg)
             foradogiro = 1
 
         if foradogiro == 1 and resulROOL != 'Girando...':
