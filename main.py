@@ -28,7 +28,7 @@ pegaporcentagem = webdriver.Chrome(options = chrome_options)
 pegaporcentagem.get('https://tipminer.com/blaze/double')
 
 
-foradogiro = 0
+foradogiro = 1
 semutilidade = 0
 
 
@@ -39,7 +39,7 @@ while True:
 
     try:
 
-        resulROOL = nav.find_element(By.XPATH, '//*[@id="roulette-timer"]/div[1]').text
+        #resulROOL = nav.find_element(By.XPATH, '//*[@id="roulette-timer"]/div[1]').text
 
         #Aqui a gente pega a porcentagem de pretos e vermelhos para utlizar no bot.
         porcentagemdepreto = pegaporcentagem.find_element(By.XPATH, '//*[@id="app"]/div/div/div[1]/div/div[3]/div/div[2]/div[2]/h5').text
@@ -79,9 +79,7 @@ while True:
         porcentagemdevermelhoDivididoEmFloat = float(porcentagemdevermlehoDividido) #Aqui convertemos o numero que pegamos em float
         gale1 = 0
 
-        if resulROOL == 'Girando...':
-            foradogiro = 1
-        if foradogiro == 1 and resulROOL != 'Girando...':
+        if foradogiro == 1:
 
             def resultado(num):
 
@@ -351,7 +349,6 @@ Possivel entrada no ⚫
                                    return
                                 return
     #==========================================FIM========================================#
-            foradogiro = 0
             resultado(ray)
             print(Fore.BLUE)
             print('Porcentagem preto:', porcentagemdepretoDivididoEmFloat)
