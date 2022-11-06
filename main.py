@@ -18,20 +18,21 @@ chrome_options.add_argument('--disable-dev-shm-usage')
 chrome_options.add_argument('--disable-gpu')
 chrome_options.add_argument('--window-size=1920,1080')
 
-chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
-driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
-
 token = '5744690430:AAHdhSKGoDml-c-6jDoAXsTZrZ7py-uVryU'
 chat_id = '-1001896645285'
 bot = telegram.Bot(token)
 
 
 nav = webdriver.Chrome(options = chrome_options)
-nav.get('https://blaze.com/pt/games/double')
 
 pegaporcentagem = webdriver.Chrome(options = chrome_options)
-pegaporcentagem.get('https://tipminer.com/blaze/double')
 
+chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
+nav = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
+pegaporcentagem = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
+
+nav.get('https://blaze.com/pt/games/double')
+pegaporcentagem.get('https://tipminer.com/blaze/double')
 
 foradogiro = 0
 semutilidade = 0
