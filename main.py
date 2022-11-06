@@ -344,7 +344,7 @@ Possivel entrada no ⚫
     #except Exception as erro:
         #semutilidade = 0
     finally:
-        #print('FIM.')
+        print('FIM.')
 
 
 nav.quit()
