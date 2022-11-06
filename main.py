@@ -35,9 +35,6 @@ pegaporcentagem.get('https://tipminer.com/blaze/double')
 foradogiro = 0
 semutilidade = 0
 bot = 1
-msg = '''===BOT INICIADO!==='''
-mensagem = bot.send_message(chat_id=chat_id, text=msg)
-
 
 while True:
 
@@ -94,7 +91,8 @@ while True:
             foradogiro = 1
 
         if foradogiro == 1 and resulROOL != 'Girando...':
-
+            msg = '''BOT INICIADO!'''
+            mensagem = bot.send_message(chat_id=chat_id, text=msg)
             def resultado(num):
 
                 if porcentagemdevermelhoDivididoEmFloat > 4200.0 and porcentagemdepretoDivididoEmFloat < 4500.0 and porcentagemdevermelhoDivididoEmFloat > porcentagemdepretoDivididoEmFloat:
