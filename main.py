@@ -80,8 +80,11 @@ while True:
         porcentagemdevermlehoDividido = "".join(re.findall("\d+", porcentagemdevermelho[3:10]))
         porcentagemdevermelhoDivididoEmFloat = float(porcentagemdevermlehoDividido) #Aqui convertemos o numero que pegamos em float
         gale1 = 0
-
+        msg = '''Chegou até aqui!'''
+        mensagem = bot.send_message(chat_id=chat_id, text=msg)
         if resulROOL == 'Girando...':
+            msg = '''Girandooooo....'''
+            mensagem = bot.send_message(chat_id=chat_id, text=msg)
             foradogiro = 1
         if foradogiro == 1 and resulROOL != 'Girando...':
 
