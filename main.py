@@ -34,30 +34,36 @@ pegaporcentagem.get('https://tipminer.com/blaze/double')
 
 foradogiro = 0
 semutilidade = 0
+bot = 1
 msg = '''===BOT INICIADO!==='''
 mensagem = bot.send_message(chat_id=chat_id, text=msg)
 
 
 while True:
 
-    try:
+    if bot == 1:
+        try:
+		
+	    resulROOL = nav.find_element(By.XPATH, '//*[@id="roulette-timer"]/div[1]').text
 
-        resulROOL = nav.find_element(By.XPATH, '//*[@id="roulette-timer"]/div[1]').text
+	    #Aqui a gente pega a porcentagem de pretos e vermelhos para utlizar no bot.
+	    porcentagemdepreto = pegaporcentagem.find_element(By.XPATH, '//*[@id="app"]/div/div/div[1]/div/div[3]/div/div[2]/div[2]/h5').text
+	    porcentagemdevermelho = pegaporcentagem.find_element(By.XPATH, '//*[@id="app"]/div/div/div[1]/div/div[3]/div/div[2]/div[1]/h5').text
 
-        #Aqui a gente pega a porcentagem de pretos e vermelhos para utlizar no bot.
-        porcentagemdepreto = pegaporcentagem.find_element(By.XPATH, '//*[@id="app"]/div/div/div[1]/div/div[3]/div/div[2]/div[2]/h5').text
-        porcentagemdevermelho = pegaporcentagem.find_element(By.XPATH, '//*[@id="app"]/div/div/div[1]/div/div[3]/div/div[2]/div[1]/h5').text
+	    pegaPretosSeguido = pegaporcentagem.find_element(By.XPATH, '//*[@id="app"]/div/div/div[1]/div/div[6]/div/div[2]/div[2]/h5').text
 
-        pegaPretosSeguido = pegaporcentagem.find_element(By.XPATH, '//*[@id="app"]/div/div/div[1]/div/div[6]/div/div[2]/div[2]/h5').text
+	    url = 'https://blaze.com/api/roulette_games/recent'
 
-        url = 'https://blaze.com/api/roulette_games/recent'
+	    response = requests.get(url)
 
-        response = requests.get(url)
+	    r = response.json()
 
-        r = response.json()
-
-        ray = []
-
+	    ray = []
+        except NameError as erro:
+             semutilidade = 1
+        except Exception as erro:
+             semutilidade = 0
+	
         for x in range(len(r)):
             val = r[x]['color']
             if val == 1:
@@ -343,8 +349,8 @@ Possivel entrada no ⚫
         #semutilidade = 1
     #except Exception as erro:
         #semutilidade = 0
-    finally:
-        print('FIM.')
+    else:
+        print('BOT DESATIVADO.')
 
 
 nav.quit()
