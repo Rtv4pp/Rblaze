@@ -35,7 +35,7 @@ pegaporcentagem = webdriver.Chrome(service=Service(os.environ.get("CHROMEDRIVER_
 nav.get('https://blaze.com/pt/games/double')
 pegaporcentagem.get('https://tipminer.com/blaze/double')
 
-foradogiro = 0
+foradogiro = 1
 semutilidade = 0
 
 
@@ -46,7 +46,7 @@ while True:
     print('No while')
     try:
 
-        resulROOL = nav.find_element(By.XPATH, '//*[@id="roulette-timer"]/div[1]').text
+        #resulROOL = nav.find_element(By.XPATH, '//*[@id="roulette-timer"]/div[1]').text
 
         #Aqui a gente pega a porcentagem de pretos e vermelhos para utlizar no bot.
         porcentagemdepreto = pegaporcentagem.find_element(By.XPATH, '//*[@id="app"]/div/div/div[1]/div/div[3]/div/div[2]/div[2]/h5').text
@@ -87,11 +87,8 @@ while True:
         gale1 = 0
         msg = '''Chegou até aqui!'''
         mensagem = bot.send_message(chat_id=chat_id, text=msg)
-        if resulROOL == 'Girando...':
-            msg = '''Girandooooo....'''
-            mensagem = bot.send_message(chat_id=chat_id, text=msg)
-            foradogiro = 1
-        if foradogiro == 1 and resulROOL != 'Girando...':
+
+        if foradogiro == 1:
 
             def resultado(num):
 
