@@ -11,7 +11,7 @@ import re
 from bs4 import BeautifulSoup
 from colorama import Fore, Back, Style, init
 
-options = webdriver.ChromeOptions()
+options = Options()
 options.add_argument('--headless')
 options.add_argument('--no-sandbox')
 options.add_argument('--disable-dev-shm-usage')  
@@ -28,8 +28,8 @@ nav = webdriver.Chrome(options = options)
 pegaporcentagem = webdriver.Chrome(options = options)
 
 options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
-nav = webdriver.Chrome(os.environ.get("CHROMEDRIVER_PATH"), options=options)
-pegaporcentagem = webdriver.Chrome(os.environ.get("CHROMEDRIVER_PATH"), options=options)
+nav = webdriver.Chrome(service=Service(os.environ.get("CHROMEDRIVER_PATH")), options=options)
+pegaporcentagem = webdriver.Chrome(service=Service(os.environ.get("CHROMEDRIVER_PATH")), options=options)
 
 nav.get('https://blaze.com/pt/games/double')
 pegaporcentagem.get('https://tipminer.com/blaze/double')
