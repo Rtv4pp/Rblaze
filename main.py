@@ -28,8 +28,8 @@ nav = webdriver.Chrome(options = options)
 pegaporcentagem = webdriver.Chrome(options = options)
 
 options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
-nav = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), options=options)
-pegaporcentagem = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), options=options)
+nav = webdriver.Chrome(os.environ.get("CHROMEDRIVER_PATH"), options=options)
+pegaporcentagem = webdriver.Chrome(os.environ.get("CHROMEDRIVER_PATH"), options=options)
 
 nav.get('https://blaze.com/pt/games/double')
 pegaporcentagem.get('https://tipminer.com/blaze/double')
