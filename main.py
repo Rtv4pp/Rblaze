@@ -43,27 +43,27 @@ while True:
 
     if bot == 1:
         try:
-		
-	    resulROOL = nav.find_element(By.XPATH, '//*[@id="roulette-timer"]/div[1]').text
 
-	    #Aqui a gente pega a porcentagem de pretos e vermelhos para utlizar no bot.
-	    porcentagemdepreto = pegaporcentagem.find_element(By.XPATH, '//*[@id="app"]/div/div/div[1]/div/div[3]/div/div[2]/div[2]/h5').text
-	    porcentagemdevermelho = pegaporcentagem.find_element(By.XPATH, '//*[@id="app"]/div/div/div[1]/div/div[3]/div/div[2]/div[1]/h5').text
+        resulROOL = nav.find_element(By.XPATH, '//*[@id="roulette-timer"]/div[1]').text
 
-	    pegaPretosSeguido = pegaporcentagem.find_element(By.XPATH, '//*[@id="app"]/div/div/div[1]/div/div[6]/div/div[2]/div[2]/h5').text
+        #Aqui a gente pega a porcentagem de pretos e vermelhos para utlizar no bot.
+        porcentagemdepreto = pegaporcentagem.find_element(By.XPATH, '//*[@id="app"]/div/div/div[1]/div/div[3]/div/div[2]/div[2]/h5').text
+        porcentagemdevermelho = pegaporcentagem.find_element(By.XPATH, '//*[@id="app"]/div/div/div[1]/div/div[3]/div/div[2]/div[1]/h5').text
 
-	    url = 'https://blaze.com/api/roulette_games/recent'
+        pegaPretosSeguido = pegaporcentagem.find_element(By.XPATH, '//*[@id="app"]/div/div/div[1]/div/div[6]/div/div[2]/div[2]/h5').text
 
-	    response = requests.get(url)
+        url = 'https://blaze.com/api/roulette_games/recent'
 
-	    r = response.json()
+        response = requests.get(url)
 
-	    ray = []
+        r = response.json()
+
+        ray = []
         except NameError as erro:
              semutilidade = 1
         except Exception as erro:
              semutilidade = 0
-	
+
         for x in range(len(r)):
             val = r[x]['color']
             if val == 1:
