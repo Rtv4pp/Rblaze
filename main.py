@@ -43,7 +43,7 @@ print(Fore.GREEN + 'BOT INICIADO!')
 print(Style.RESET_ALL)
 
 while True:
-
+    print('No while')
     try:
 
         resulROOL = nav.find_element(By.XPATH, '//*[@id="roulette-timer"]/div[1]').text
@@ -372,12 +372,12 @@ Possivel entrada no ⚫
             print(Style.RESET_ALL)
 
 
-    except NameError as erro:
-        semutilidade = 1
-    except Exception as erro:
-        semutilidade = 0
-    #finally:
-        #print('FIM.')
+    #except NameError as erro:
+        #semutilidade = 1
+    #except Exception as erro:
+        #semutilidade = 0
+    finally:
+        print('FIM.')
 
 
 nav.quit()
