@@ -17,10 +17,6 @@ chrome_options.add_argument('--no-sandbox')
 chrome_options.add_argument('--disable-dev-shm-usage')  
 chrome_options.add_argument('--disable-gpu')
 chrome_options.add_argument('--window-size=1920,1080')
-chrome_options.add_argument('--ignore-certificate-errors-spki-list')
-chrome_options.add_argument('--ignore-ssl-errors')
-chrome_options.add_argument("--disable-blink-features=AutomationControlled")
-chrome_options.add_argument('log-level=3')
 
 token = '5744690430:AAHdhSKGoDml-c-6jDoAXsTZrZ7py-uVryU'
 chat_id = '-1001896645285'
@@ -38,7 +34,6 @@ foradogiro = 0
 semutilidade = 0
 
 
-os.system('cls') or None
 print(Fore.GREEN + 'BOT INICIADO!')
 print(Style.RESET_ALL)
 
