@@ -339,11 +339,11 @@ Possivel entrada no ⚫
             print('FIM DA RODADA!')
 
 
-    except NameError as erro:
-        semutilidade = 1
-    except Exception as erro:
-        semutilidade = 0
-    #finally:
+    #except NameError as erro:
+        #semutilidade = 1
+    #except Exception as erro:
+        #semutilidade = 0
+    finally:
         #print('FIM.')
 
 
