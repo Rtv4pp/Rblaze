@@ -41,7 +41,7 @@ semutilidade = 0
 
 print(Fore.GREEN + 'BOT INICIADO!')
 print(Style.RESET_ALL)
-
+val = []
 while True:
     print('No while')
     try:
@@ -61,7 +61,6 @@ while True:
         r = response.json()
 
         ray = []
-
         for x in range(len(r)):
             val = r[x]['color']
             if val == 1:
