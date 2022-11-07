@@ -12,12 +12,12 @@ import re
 from bs4 import BeautifulSoup
 from colorama import Fore, Back, Style, init
 
-options = Options()
-options.add_argument('--headless')
-options.add_argument('--no-sandbox')
-options.add_argument('--disable-dev-shm-usage')  
-options.add_argument('--disable-gpu')
-options.add_argument('--window-size=1920,1080')
+chrome_options = Options()
+chrome_options.add_argument('--headless')
+chrome_options.add_argument('--no-sandbox')
+chrome_options.add_argument('--disable-dev-shm-usage')  
+chrome_options.add_argument('--disable-gpu')
+chrome_options.add_argument('--window-size=1920,1080')
 
 token = '5744690430:AAHdhSKGoDml-c-6jDoAXsTZrZ7py-uVryU'
 chat_id = '-1001896645285'
@@ -29,8 +29,8 @@ nav = webdriver.Chrome(options = options)
 pegaporcentagem = webdriver.Chrome(options = options)
 
 options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
-nav = webdriver.Chrome(service=Service(os.environ.get("CHROMEDRIVER_PATH")), options=options)
-pegaporcentagem = webdriver.Chrome(service=Service(os.environ.get("CHROMEDRIVER_PATH")), options=options)
+nav = webdriver.Chrome(service=Service(os.environ.get("CHROMEDRIVER_PATH")), chrome_options=options)
+pegaporcentagem = webdriver.Chrome(service=Service(os.environ.get("CHROMEDRIVER_PATH")), chrome_options=options)
 
 nav.get('https://blaze.com/pt/games/double')
 pegaporcentagem.get('https://tipminer.com/blaze/double')
