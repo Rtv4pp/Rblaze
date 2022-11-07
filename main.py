@@ -80,10 +80,10 @@ while True:
         gale1 = 0
 
         if resulROOL == 'Girando...':
-            print(Girando..)
+            print('Girando..')
             foradogiro = 1
         if foradogiro == 1 and resulROOL != 'Girando...':
-
+            print('Verificando padroes..')
             def resultado(num):
 
                 if porcentagemdevermelhoDivididoEmFloat > 4200.0 and porcentagemdepretoDivididoEmFloat < 4500.0 and porcentagemdevermelhoDivididoEmFloat > porcentagemdepretoDivididoEmFloat:
