@@ -363,12 +363,12 @@ Possivel entrada no ⚫
             print(Style.RESET_ALL)
 
 
-    #except NameError as erro:
-        #semutilidade = 1
-    #except Exception as erro:
-        #semutilidade = 0
-    finally:
-        print('FIM.')
+    except NameError as erro:
+        semutilidade = 1
+    except Exception as erro:
+        semutilidade = 0
+    #finally:
+        #print('FIM.')
 
 
 nav.quit()
