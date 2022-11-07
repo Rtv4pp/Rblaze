@@ -27,7 +27,7 @@ options.add_argument('--window-size=1920,1080')
 
 #nav = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), options=options)
 #pegaporcentagem = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), options=options)
-s=Service(‘CHROMEDRIVER_PATH')
+s=Service('CHROMEDRIVER_PATH')
 webdriver.Chrome(service=s)
 nav =  webdriver.Chrome(executable_path="CHROMEDRIVER_PATH", options=options)
 pegaporcentagem = webdriver.Chrome(executable_path="CHROMEDRIVER_PATH", options=options)
