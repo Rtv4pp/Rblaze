@@ -24,9 +24,9 @@ chat_id = '-1001896645285'
 bot = telegram.Bot(token)
 
 
-nav = webdriver.Chrome(options = options)
+nav = webdriver.Chrome(chrome_options = options)
 
-pegaporcentagem = webdriver.Chrome(options = options)
+pegaporcentagem = webdriver.Chrome(chrome_options = options)
 
 options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
 nav = webdriver.Chrome(service=Service(os.environ.get("CHROMEDRIVER_PATH")), chrome_options=options)
