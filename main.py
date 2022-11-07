@@ -24,13 +24,10 @@ chat_id = '-1001896645285'
 bot = telegram.Bot(token)
 
 
-nav = webdriver.Chrome(chrome_options = options)
-
-pegaporcentagem = webdriver.Chrome(chrome_options = options)
-
 options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
-nav = webdriver.Chrome(service=Service(os.environ.get("CHROMEDRIVER_PATH")), chrome_options=options)
-pegaporcentagem = webdriver.Chrome(service=Service(os.environ.get("CHROMEDRIVER_PATH")), chrome_options=options)
+
+nav = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=options)
+pegaporcentagem = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=options)
 
 nav.get('https://blaze.com/pt/games/double')
 pegaporcentagem.get('https://tipminer.com/blaze/double')
@@ -246,7 +243,7 @@ Possivel entrada no ⚫
                             return
 
 
-	    #==========================================FIM========================================#
+        #==========================================FIM========================================#
 
     #==========================================ESTRATEGIA MATADORA========================================#
                 elif porcentagemdevermelhoDivididoEmFloat > 4700.0 and porcentagemdepretoDivididoEmFloat < 4400.0 and porcentagemdevermelhoDivididoEmFloat > porcentagemdepretoDivididoEmFloat:
