@@ -53,10 +53,10 @@ while True:
             porcentagemdevermelho = pegaporcentagem.find_element(By.XPATH, '//*[@id="app"]/div/div/div[1]/div/div[3]/div/div[2]/div[1]/h5').text
 
             pegaPretosSeguido = pegaporcentagem.find_element(By.XPATH, '//*[@id="app"]/div/div/div[1]/div/div[6]/div/div[2]/div[2]/h5').text
-            except NameError as erro:
-               semutilidade = 1
-            except Exception as erro:
-               semutilidade = 0
+        except NameError as erro:
+           semutilidade = 1
+        except Exception as erro:
+           semutilidade = 0
         url = 'https://blaze.com/api/roulette_games/recent'
 
         response = requests.get(url)
