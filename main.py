@@ -19,7 +19,7 @@ bot = telegram.Bot(token)
 
 options  = webdriver.ChromeOptions()
 options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
-
+webdriver.Chrome(service=s)
 options.add_argument('--headless')
 options.add_argument('--no-sandbox')
 options.add_argument('--disable-dev-shm-usage')  
@@ -28,9 +28,9 @@ options.add_argument('--window-size=1920,1080')
 
 #nav = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), options=options)
 #pegaporcentagem = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), options=options)
-
-nav = webdriver.Chrome(service=Service(ChromeDriverManager().install()),executable_path=os.environ.get("CHROMEDRIVER_PATH"), options=options)
-pegaporcentagem = webdriver.Chrome(service=Service(ChromeDriverManager().install()),executable_path=os.environ.get("CHROMEDRIVER_PATH"), options=options)
+s=Service(‘CHROMEDRIVER_PATH')
+nav =  webdriver.Chrome(executable_path="CHROMEDRIVER_PATH", options=options)
+pegaporcentagem = webdriver.Chrome(executable_path="CHROMEDRIVER_PATH", options=options)
 
 nav.get('https://blaze.com/pt/games/double')
 pegaporcentagem.get('https://tipminer.com/blaze/double')
