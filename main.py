@@ -40,7 +40,6 @@ print(Style.RESET_ALL)
 val = []
 while True:
     try:
-        print('FOI!!!!')
         resulROOL = nav.find_element(By.XPATH, '//*[@id="roulette-timer"]/div[1]').text
 
         #Aqui a gente pega a porcentagem de pretos e vermelhos para utlizar no bot.
@@ -79,10 +78,11 @@ while True:
         porcentagemdevermlehoDividido = "".join(re.findall("\d+", porcentagemdevermelho[3:10]))
         porcentagemdevermelhoDivididoEmFloat = float(porcentagemdevermlehoDividido) #Aqui convertemos o numero que pegamos em float
         gale1 = 0
-        msg = '''Chegou até aqui!'''
-        mensagem = bot.send_message(chat_id=chat_id, text=msg)
 
-        if foradogiro == 1:
+        if resulROOL == 'Girando...':
+            print(Girando..)
+            foradogiro = 1
+        if foradogiro == 1 and resulROOL != 'Girando...':
 
             def resultado(num):
 
