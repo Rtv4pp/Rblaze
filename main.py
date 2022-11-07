@@ -17,7 +17,7 @@ chat_id = '-1001896645285'
 bot = telegram.Bot(token)
 
 chrome_options = webdriver.ChromeOptions()
-chrome.options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
+chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
 
 chrome_options.add_argument('--headless')
 chrome_options.add_argument('--no-sandbox')
