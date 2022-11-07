@@ -39,8 +39,8 @@ print(Fore.GREEN + 'BOT INICIADO!')
 print(Style.RESET_ALL)
 val = []
 while True:
-    print('No while')
     try:
+        print('FOI!!!!')
         resulROOL = nav.find_element(By.XPATH, '//*[@id="roulette-timer"]/div[1]').text
 
         #Aqui a gente pega a porcentagem de pretos e vermelhos para utlizar no bot.
