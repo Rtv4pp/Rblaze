@@ -2,7 +2,7 @@ telegram
 bs4
 python-telegram-bot
 requests
-selenium
+selenium==4.4.3
 colorama
 webdriver_manager
 packaging
