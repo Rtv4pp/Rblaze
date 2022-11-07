@@ -12,19 +12,18 @@ import re
 from bs4 import BeautifulSoup
 from colorama import Fore, Back, Style, init
 
-chrome_options = Options()
+token = '5744690430:AAHdhSKGoDml-c-6jDoAXsTZrZ7py-uVryU'
+chat_id = '-1001896645285'
+bot = telegram.Bot(token)
+
+chrome_options = webdriver.ChromeOptions()
+chrome.options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
+
 chrome_options.add_argument('--headless')
 chrome_options.add_argument('--no-sandbox')
 chrome_options.add_argument('--disable-dev-shm-usage')  
 chrome_options.add_argument('--disable-gpu')
 chrome_options.add_argument('--window-size=1920,1080')
-
-token = '5744690430:AAHdhSKGoDml-c-6jDoAXsTZrZ7py-uVryU'
-chat_id = '-1001896645285'
-bot = telegram.Bot(token)
-
-
-options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
 
 nav = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=options)
 pegaporcentagem = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=options)
@@ -42,18 +41,14 @@ val = []
 while True:
     print('No while')
     try:
-        try:
-            resulROOL = nav.find_element(By.XPATH, '//*[@id="roulette-timer"]/div[1]').text
+        resulROOL = nav.find_element(By.XPATH, '//*[@id="roulette-timer"]/div[1]').text
 
-                #Aqui a gente pega a porcentagem de pretos e vermelhos para utlizar no bot.
-            porcentagemdepreto = pegaporcentagem.find_element(By.XPATH, '//*[@id="app"]/div/div/div[1]/div/div[3]/div/div[2]/div[2]/h5').text
-            porcentagemdevermelho = pegaporcentagem.find_element(By.XPATH, '//*[@id="app"]/div/div/div[1]/div/div[3]/div/div[2]/div[1]/h5').text
+        #Aqui a gente pega a porcentagem de pretos e vermelhos para utlizar no bot.
+        porcentagemdepreto = pegaporcentagem.find_element(By.XPATH, '//*[@id="app"]/div/div/div[1]/div/div[3]/div/div[2]/div[2]/h5').text
+        porcentagemdevermelho = pegaporcentagem.find_element(By.XPATH, '//*[@id="app"]/div/div/div[1]/div/div[3]/div/div[2]/div[1]/h5').text
 
-            pegaPretosSeguido = pegaporcentagem.find_element(By.XPATH, '//*[@id="app"]/div/div/div[1]/div/div[6]/div/div[2]/div[2]/h5').text
-        except NameError as erro:
-           semutilidade = 1
-        except Exception as erro:
-           semutilidade = 0
+        pegaPretosSeguido = pegaporcentagem.find_element(By.XPATH, '//*[@id="app"]/div/div/div[1]/div/div[6]/div/div[2]/div[2]/h5').text
+
         url = 'https://blaze.com/api/roulette_games/recent'
 
         response = requests.get(url)
