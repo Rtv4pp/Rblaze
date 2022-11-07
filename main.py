@@ -46,17 +46,17 @@ while True:
     print('No while')
     try:
         try:
-        resulROOL = nav.find_element(By.XPATH, '//*[@id="roulette-timer"]/div[1]').text
+            resulROOL = nav.find_element(By.XPATH, '//*[@id="roulette-timer"]/div[1]').text
 
-        #Aqui a gente pega a porcentagem de pretos e vermelhos para utlizar no bot.
-        porcentagemdepreto = pegaporcentagem.find_element(By.XPATH, '//*[@id="app"]/div/div/div[1]/div/div[3]/div/div[2]/div[2]/h5').text
-        porcentagemdevermelho = pegaporcentagem.find_element(By.XPATH, '//*[@id="app"]/div/div/div[1]/div/div[3]/div/div[2]/div[1]/h5').text
+                #Aqui a gente pega a porcentagem de pretos e vermelhos para utlizar no bot.
+            porcentagemdepreto = pegaporcentagem.find_element(By.XPATH, '//*[@id="app"]/div/div/div[1]/div/div[3]/div/div[2]/div[2]/h5').text
+            porcentagemdevermelho = pegaporcentagem.find_element(By.XPATH, '//*[@id="app"]/div/div/div[1]/div/div[3]/div/div[2]/div[1]/h5').text
 
-        pegaPretosSeguido = pegaporcentagem.find_element(By.XPATH, '//*[@id="app"]/div/div/div[1]/div/div[6]/div/div[2]/div[2]/h5').text
-        except NameError as erro:
-           semutilidade = 1
-        except Exception as erro:
-           semutilidade = 0
+            pegaPretosSeguido = pegaporcentagem.find_element(By.XPATH, '//*[@id="app"]/div/div/div[1]/div/div[6]/div/div[2]/div[2]/h5').text
+            except NameError as erro:
+               semutilidade = 1
+            except Exception as erro:
+               semutilidade = 0
         url = 'https://blaze.com/api/roulette_games/recent'
 
         response = requests.get(url)
