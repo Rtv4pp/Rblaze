@@ -1,6 +1,16 @@
 import requests
 import telegram 
 import time
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.common.by import By
+import os
+import colorama
+from bs4 import BeautifulSoup
+from colorama import Fore, Back, Style, init
+
+chrome_options = Options()
+chrome_options.add_argument('--headless')
 
 
 token = '5744690430:AAHdhSKGoDml-c-6jDoAXsTZrZ7py-uVryU'
@@ -8,93 +18,315 @@ chat_id = '-1001896645285'
 bot = telegram.Bot(token)
 
 
+nav = webdriver.Chrome(options = chrome_options)
+nav.get('https://blaze.com/pt/games/double')
+
+
+
+foradogiro = 0
+semutilidade = 0
+gale1 = 1
+teste = 0
+
+
+os.system('cls') or None
+print(Fore.GREEN + 'BOT INICIADO!')
+print(Style.RESET_ALL)
+
 while True:
 
-    url = 'https://blaze.com/api/roulette_games/recent'
+    try:
+        resulROOL = nav.find_element(By.XPATH, '//*[@id="roulette-timer"]/div[1]').text
 
-    response = requests.get(url)
+        url = 'https://blaze.com/api/roulette_games/recent'
 
-    r = response.json()
+        response = requests.get(url)
 
-    ray = []
+        r = response.json()
 
-    for x in range(len(r)):
-        val = r[x]['color']
-        if val == 1:
-            val = 'Vermelho'
+        ray = []
 
-        if val == 2:
-            val = 'Preto'
+        for x in range(len(r)):
+            val = r[x]['color']
+            if val == 1:
+                val = 'V'
 
-        if val == 0:
-            val = 'Branco'
+            if val == 2:
+                val = 'P'
 
-        ray.append(val)
+            if val == 0:
+                val = 'B'
 
-    print(ray)
+            ray.append(val)
 
-    def resultado(num):
-        if num[0:4] == ['Preto', 'Vermelho', 'Vermelho', 'Vermelho']:
+        if resulROOL == 'Girando...':
+            foradogiro = 1
+        if foradogiro == 1 and resulROOL != 'Girando...':
 
-            msg = '''✅ GREEN no ⚫'''
-            mensagem = bot.send_message(chat_id=chat_id, text=msg)
-            time.sleep(40)
-            mensagem.delete()
-            
+            def resultado(num):
 
-        elif num[0:4] == ['Vermelho', 'Vermelho', 'Vermelho', 'Vermelho']:
+                #if porcentagemdevermelhoDivididoEmFloat > 4200.0 and porcentagemdepretoDivididoEmFloat < 4500.0 and porcentagemdevermelhoDivididoEmFloat > porcentagemdepretoDivididoEmFloat:
+                if teste == 0:
+    #==========================================Estrategia Sequencia============================#
 
-            text = '''✅ LOSS'''
-            url_base = f'https://api.telegram.org/bot{token}/sendMessage?chat_id={chat_id}&text={text}'
-            results = requests.get(url_base)
-            time.sleep(5)
 
-        elif num[0:3] == ['Vermelho', 'Vermelho', 'Vermelho']:
+                    if num[0:4] == ['P', 'P', 'P', 'P']:
+                        if num[0:5] == ['P', 'P', 'P', 'P', 'P']:
+                            return
 
-            text = '''✅ Entrada confirmada, entrar no ⚫
-                      Buscar apoio no ⚪'''
-            url_base = f'https://api.telegram.org/bot{token}/sendMessage?chat_id={chat_id}&text={text}'
-            results = requests.get(url_base)
-            time.sleep(5)
+                        elif num[0:4] == ['P', 'P', 'P', 'P']:
+                            msg = '''❌LOSS'''
+                            mensagem = bot.send_message(chat_id=chat_id, text=msg)
+                            print(Fore.RED + '==LOSS==')
+                            print(Style.RESET_ALL)
+                            return
 
-        elif num[0:2] == ['Vermelho', 'Vermelho']:
 
-            text = '''✅ Possivel entrada no ⚫
-                Buscar apoio no ⚪'''
-            url_base = f'https://api.telegram.org/bot{token}/sendMessage?chat_id={chat_id}&text={text}'
-            results = requests.get(url_base)
-            time.sleep(5)
+                    elif num[0:4] == ['V', 'P', 'P', 'P']:
 
-        elif num[0:4] == ['Vermelho', 'Preto', 'Preto', 'Preto']:
+                        if num[0:5] == ['V', 'P', 'P', 'P', 'P']:
+                            return
 
-            text = '''✅ GREEN no 🔴'''
-            url_base = f'https://api.telegram.org/bot{token}/sendMessage?chat_id={chat_id}&text={text}'
-            results = requests.get(url_base)
-            time.sleep(5)
+                        elif num[0:4] == ['V', 'P', 'P', 'P']:
+                            msg = '''✅ GREEN no 🔴🍷🗿'''
+                            mensagem = bot.send_message(chat_id=chat_id, text=msg)
+                            print(Fore.GREEN + '==WIN==')
+                            print(Style.RESET_ALL)
+                            return
+                        elif num[0:4] == ['B', 'P', 'P', 'P']:
+                            msg = '''✅ GREEN no ⚪🍷🗿'''
+                            print(Fore.GREEN + '==WIN==')
+                            print(Style.RESET_ALL)
+                            mensagem = bot.send_message(chat_id=chat_id, text=msg)
+                            return
 
-        elif num[0:4] == ['Preto', 'Preto', 'Preto', 'Preto']:
 
-            text = '''✅ LOSS'''
-            url_base = f'https://api.telegram.org/bot{token}/sendMessage?chat_id={chat_id}&text={text}'
-            results = requests.get(url_base)
-            time.sleep(5)
+                    elif num[0:3] == ['P', 'P', 'P']:
 
-        elif num[0:3] == ['Preto', 'Preto', 'Preto']:
+                        if num[0:4] == ['P', 'P', 'P', 'P']:
+                            return
 
-            text = '''✅ Entrada confirmada, entrar no 🔴
-                   Buscar apoio no ⚪'''
-            url_base = f'https://api.telegram.org/bot{token}/sendMessage?chat_id={chat_id}&text={text}'
-            results = requests.get(url_base)
-            time.sleep(5)
+                        elif num[0:3] == ['P', 'P', 'P']:
+                            msg = '''🚨Entrada confirmada🚨
+📌Entrar no 🔴 
+🛡️Proteger o ⚪'''
+                            mensagem = bot.send_message(chat_id=chat_id, text=msg)
+                            return
 
-        elif num[0:2] == ['Preto', 'Preto']:
 
-            text = '''✅ Possivel entrada no 🔴
-                 Buscar apoio no ⚪ '''
-            url_base = f'https://api.telegram.org/bot{token}/sendMessage?chat_id={chat_id}&text={text}'
-            results = requests.get(url_base)
-            time.sleep(5)
+                    elif num[0:2] == ['P', 'P']:
+ 
+                        if num[0:3] == ['P', 'P', 'P']:
+                            return
 
-    resultado(ray)
+                        elif num[0:2] == ['P', 'P']:
+                            msg = '''⚠️ATENÇÃO⚠️
+Possivel entrada no 🔴 
+⏰Aguarde o sinal...'''
+                            mensagem = bot.send_message(chat_id=chat_id, text=msg)
+                            time.sleep(15)
+                            mensagem.delete()
+                            if resulROOL == 'Girando...':
+                               return
+                            return
 
-    time.sleep(5)
+
+
+
+
+                #elif porcentagemdepretoDivididoEmFloat > 4700.0 and porcentagemdevermelhoDivididoEmFloat < 4400.0 and porcentagemdepretoDivididoEmFloat > porcentagemdevermelhoDivididoEmFloat:
+                elif teste == 0:
+    #==========================================Estrategia Sequencia============================#
+
+
+                    if num[0:4] == ['V', 'V', 'V', 'V']:
+                        if num[0:5] == ['V', 'V', 'V', 'V', 'V']:
+                            return
+
+                        elif num[0:4] == ['V', 'V', 'V', 'V']:
+                            msg = '''❌LOSS'''
+                            mensagem = bot.send_message(chat_id=chat_id, text=msg)
+                            print(Fore.RED + '==LOSS==')
+                            print(Style.RESET_ALL)
+                            return
+
+
+                    elif num[0:4] == ['P', 'V', 'V', 'V']:
+
+                        if num[0:5] == ['P', 'V', 'V', 'V', 'V']:
+                            return
+
+                        elif num[0:4] == ['P', 'V', 'V', 'V']:
+                            msg = '''✅ GREEN no ⚫🍷🗿'''
+                            mensagem = bot.send_message(chat_id=chat_id, text=msg)
+                            print(Fore.GREEN + '==WIN==')
+                            print(Style.RESET_ALL)
+                            return
+                        elif num[0:4] == ['B', 'V', 'V', 'V']:
+                            msg = '''✅ GREEN no ⚪🍷🗿'''
+                            mensagem = bot.send_message(chat_id=chat_id, text=msg)
+                            print(Fore.GREEN + '==WIN==')
+                            print(Style.RESET_ALL)
+                            return
+
+
+                    elif num[0:3] == ['V', 'V', 'V']:
+
+                        if num[0:4] == ['V', 'V', 'V', 'V']:
+                            return
+
+                        elif num[0:3] == ['V', 'V', 'V']:
+                            msg = '''🚨Entrada confirmada🚨
+📌Entrar no ⚫ 
+🛡️Proteger o ⚪'''
+                            mensagem = bot.send_message(chat_id=chat_id, text=msg)
+                            return
+
+
+                    elif num[0:2] == ['V', 'V']:
+ 
+                        if num[0:3] == ['V', 'V', 'V']:
+                            return
+
+                        elif num[0:2] == ['V', 'V']:
+                            msg = '''⚠️ATENÇÃO⚠️
+Possivel entrada no ⚫ 
+⏰Aguarde o sinal...'''
+                            mensagem = bot.send_message(chat_id=chat_id, text=msg)
+                            time.sleep(15)
+                            mensagem.delete()
+                            if resulROOL == 'Girando...':
+                               return
+                            return
+#===================================================FIM==================================================#
+
+    #==========================================ESTRATEGIA MATADORA========================================#
+                #elif porcentagemdevermelhoDivididoEmFloat > 4700.0 and porcentagemdepretoDivididoEmFloat < 4400.0 and porcentagemdevermelhoDivididoEmFloat > porcentagemdepretoDivididoEmFloat:
+                elif teste == 0:
+
+                    if num[0:4] == ['V', 'B', 'V', 'V']:
+                        if num[0:5] == ['V', 'B', 'V', 'V', 'V']:
+                            return
+
+                        elif  num[0:4] == ['V', 'B', 'V', 'V']:
+                            msg = '''✅ GREEN no 🔴🍷🗿'''
+                            mensagem = bot.send_message(chat_id=chat_id, text=msg)
+                            print(Fore.GREEN + '==WIN!!!==')
+                            print(Style.RESET_ALL)
+                            return
+                        elif  num[0:4] == ['B', 'B', 'V', 'V']:
+                            msg = '''✅ GREEN no ⚪🍷🗿'''
+                            mensagem = bot.send_message(chat_id=chat_id, text=msg)
+                            print(Fore.GREEN + '==WIN!!!==')
+                            print(Style.RESET_ALL)
+                            return
+
+
+                    elif num[0:4] == ['P', 'B', 'V', 'V']:
+
+                        if num[0:5] == ['P', 'B', 'V', 'V', 'V']:
+                            return
+
+                        elif  num[0:4] == ['P', 'B', 'V', 'V']:
+                            msg = '''❌LOSS'''
+                            mensagem = bot.send_message(chat_id=chat_id, text=msg)
+                            print(Fore.RED + '==LOSS==')
+                            print(Style.RESET_ALL)
+                            return
+
+
+                    elif num[0:3] == ['B', 'V', 'V']:
+
+                        if num[0:4] == ['B', 'V', 'V', 'V']:
+                            return
+
+                        elif num[0:3] == ['B', 'V', 'V']:
+                            msg = '''🚨Entrada confirmada!! Este é o metodo de porcentagem!!!!🚨
+📌Entrar no 🔴 
+🛡️Proteger o ⚪'''
+                            mensagem = bot.send_message(chat_id=chat_id, text=msg)
+                            return
+
+                        elif num[0:2] == ['V', 'V']:
+                            msg = '''⚠️ATENÇÃO⚠️
+Possivel entrada no 🔴 
+⏰Aguarde o sinal...'''
+                            mensagem = bot.send_message(chat_id=chat_id, text=msg)
+                            time.sleep(15)
+                            mensagem.delete()
+                            if resulROOL == 'Girando...':
+                               return
+                            return
+ 
+
+
+
+
+
+                #elif porcentagemdepretoDivididoEmFloat > 4700.0 and porcentagemdevermelhoDivididoEmFloat < 4400.0 and porcentagemdepretoDivididoEmFloat > porcentagemdevermelhoDivididoEmFloat:
+                elif teste == 0:
+                    if  num[0:4] == ['P', 'B', 'P', 'P']:
+                        msg = '''✅ GREEN no ⚫🍷🗿'''
+                        mensagem = bot.send_message(chat_id=chat_id, text=msg)
+                        print(Fore.GREEN + '==WIN!!!==')
+                        print(Style.RESET_ALL)
+                        return
+                    elif  num[0:4] == ['B', 'B', 'P', 'P']:
+                        msg = '''✅ GREEN no ⚪🍷🗿'''
+                        mensagem = bot.send_message(chat_id=chat_id, text=msg)
+                        print(Fore.GREEN + '==WIN!!!==')
+                        print(Style.RESET_ALL)
+                        return
+
+                    elif num[0:4] == ['V', 'B', 'P', 'P']:
+                        if num[0:5] == ['V', 'B', 'P', 'P', 'P']:
+                            return
+
+                        elif  num[0:4] == ['V', 'B', 'P', 'P']:
+                            msg = '''❌LOSS'''
+                            mensagem = bot.send_message(chat_id=chat_id, text=msg)
+                            print(Fore.RED + '==LOSS==')
+                            print(Style.RESET_ALL)
+                            return
+
+                    elif num[0:3] == ['B', 'P', 'P']:
+
+                        if num[0:4] == ['B', 'P', 'P', 'P']:
+                            return
+
+                        elif num[0:3] == ['B', 'P', 'P']:
+                            msg = '''🚨Entrada confirmada!! Este é o metodo de porcentagem!!!!🚨
+📌Entrar no ⚫ 
+🛡️Proteger o ⚪'''
+                            mensagem = bot.send_message(chat_id=chat_id, text=msg)
+                            return
+
+                        elif num[0:2] == ['P', 'P']:
+                            msg = '''⚠️ATENÇÃO⚠️
+Possivel entrada no ⚫ 
+⏰Aguarde o sinal...'''
+                            mensagem = bot.send_message(chat_id=chat_id, text=msg)
+                            time.sleep(15)
+                            mensagem.delete()
+                            if resulROOL == 'Girando...':
+                                return
+                            return
+    #==========================================FIM========================================#
+
+            foradogiro = 0
+            resultado(ray)
+            print('Cores da rodada:',ray)
+            print(Fore.YELLOW + 'FIM DA RODADA!')
+            print(Style.RESET_ALL)
+
+
+    except NameError as erro:
+        semutilidade = 0
+    except Exception as erro:
+        semutilidade = 0
+    #finally:
+        #print('FIM.')
+
+
+nav.quit()
+#pegaporcentagem.quit()
