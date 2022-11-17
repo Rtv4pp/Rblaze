@@ -25,7 +25,7 @@ nav.get('https://blaze.com/pt/games/double')
 
 foradogiro = 0
 semutilidade = 0
-gale1 = 1
+gale = 0
 teste = 0
 
 
@@ -64,21 +64,50 @@ while True:
         if foradogiro == 1 and resulROOL != 'Girando...':
 
             def resultado(num):
-
+                global gale #Pra não bugar a variavel "gale"
+                
                 #if porcentagemdevermelhoDivididoEmFloat > 4200.0 and porcentagemdepretoDivididoEmFloat < 4500.0 and porcentagemdevermelhoDivididoEmFloat > porcentagemdepretoDivididoEmFloat:
                 if teste == 0:
     #==========================================Estrategia Sequencia============================#
+                #================================GALE 1===============================#
 
-
-                    if num[0:4] == ['P', 'P', 'P', 'P']:
+                    if gale == 1:
                         if num[0:5] == ['P', 'P', 'P', 'P', 'P']:
-                            return
-
-                        elif num[0:4] == ['P', 'P', 'P', 'P']:
                             msg = '''❌LOSS'''
                             mensagem = bot.send_message(chat_id=chat_id, text=msg)
                             print(Fore.RED + '==LOSS==')
                             print(Style.RESET_ALL)
+                            gale = 0
+                            return
+
+                        elif num[0:5] == ['V', 'P', 'P', 'P', 'P']:
+                            msg = '''✅G1 GREEN no 🔴🍷🗿'''
+                            mensagem = bot.send_message(chat_id=chat_id, text=msg)
+                            print(Fore.GREEN + '==WIN==')
+                            print(Style.RESET_ALL)
+                            gale = 0
+                            return
+
+                        elif num[0:5] == ['B', 'P', 'P', 'P', 'P']:
+                            msg = '''✅G1 GREEN no ⚪🍷🗿'''
+                            mensagem = bot.send_message(chat_id=chat_id, text=msg)
+                            print(Fore.GREEN + '==WIN==')
+                            print(Style.RESET_ALL)
+                            gale = 0
+                            return
+
+                #===============================================================#
+
+                    elif num[0:4] == ['P', 'P', 'P', 'P']:
+                        if num[0:5] == ['P', 'P', 'P', 'P', 'P']:
+                            return
+
+                        elif num[0:4] == ['P', 'P', 'P', 'P']:
+                            msg = '''GALE 1'''
+                            mensagem = bot.send_message(chat_id=chat_id, text=msg)
+                            print(Fore.YELLOW + 'GALE 1')
+                            print(Style.RESET_ALL)
+                            gale = 1
                             return
 
 
@@ -132,22 +161,49 @@ Possivel entrada no 🔴
 
 
 
-
-
                 #elif porcentagemdepretoDivididoEmFloat > 4700.0 and porcentagemdevermelhoDivididoEmFloat < 4400.0 and porcentagemdepretoDivididoEmFloat > porcentagemdevermelhoDivididoEmFloat:
-                elif teste == 0:
+                if teste == 0:
     #==========================================Estrategia Sequencia============================#
 
-
-                    if num[0:4] == ['V', 'V', 'V', 'V']:
+                #================================GALE 1===============================#
+                    if gale == 1:
                         if num[0:5] == ['V', 'V', 'V', 'V', 'V']:
-                            return
-
-                        elif num[0:4] == ['V', 'V', 'V', 'V']:
                             msg = '''❌LOSS'''
                             mensagem = bot.send_message(chat_id=chat_id, text=msg)
                             print(Fore.RED + '==LOSS==')
                             print(Style.RESET_ALL)
+                            gale = 0
+                            return
+
+                        elif num[0:5] == ['P', 'V', 'V', 'V', 'V']:
+                            msg = '''✅G1 GREEN no ⚫🍷🗿'''
+                            mensagem = bot.send_message(chat_id=chat_id, text=msg)
+                            print(Fore.GREEN + 'WIN')
+                            print(Style.RESET_ALL)
+                            gale = 0
+                            return
+
+                        elif num[0:5] == ['B', 'V', 'V', 'V', 'V']:
+                            msg = '''✅G1 GREEN no ⚪🍷🗿'''
+                            mensagem = bot.send_message(chat_id=chat_id, text=msg)
+                            print(Fore.GREEN + 'WIN')
+                            print(Style.RESET_ALL)
+                            gale = 0
+                            return
+
+                #===============================================================#
+
+
+                    elif num[0:4] == ['V', 'V', 'V', 'V']:
+                        if num[0:5] == ['V', 'V', 'V', 'V', 'V']:
+                            return
+
+                        elif num[0:4] == ['V', 'V', 'V', 'V']:
+                            msg = '''GALE 1'''
+                            mensagem = bot.send_message(chat_id=chat_id, text=msg)
+                            print(Fore.YELLOW + '==GALE 1==')
+                            print(Style.RESET_ALL)
+                            gale = 1
                             return
 
 
@@ -162,11 +218,12 @@ Possivel entrada no 🔴
                             print(Fore.GREEN + '==WIN==')
                             print(Style.RESET_ALL)
                             return
+
                         elif num[0:4] == ['B', 'V', 'V', 'V']:
                             msg = '''✅ GREEN no ⚪🍷🗿'''
-                            mensagem = bot.send_message(chat_id=chat_id, text=msg)
                             print(Fore.GREEN + '==WIN==')
                             print(Style.RESET_ALL)
+                            mensagem = bot.send_message(chat_id=chat_id, text=msg)
                             return
 
 
@@ -198,42 +255,72 @@ Possivel entrada no ⚫
                             if resulROOL == 'Girando...':
                                return
                             return
+
 #===================================================FIM==================================================#
 
-    #==========================================ESTRATEGIA MATADORA========================================#
-                #elif porcentagemdevermelhoDivididoEmFloat > 4700.0 and porcentagemdepretoDivididoEmFloat < 4400.0 and porcentagemdevermelhoDivididoEmFloat > porcentagemdepretoDivididoEmFloat:
-                elif teste == 0:
-
-                    if num[0:4] == ['V', 'B', 'V', 'V']:
-                        if num[0:5] == ['V', 'B', 'V', 'V', 'V']:
-                            return
-
-                        elif  num[0:4] == ['V', 'B', 'V', 'V']:
-                            msg = '''✅ GREEN no 🔴🍷🗿'''
-                            mensagem = bot.send_message(chat_id=chat_id, text=msg)
-                            print(Fore.GREEN + '==WIN!!!==')
-                            print(Style.RESET_ALL)
-                            return
-                        elif  num[0:4] == ['B', 'B', 'V', 'V']:
-                            msg = '''✅ GREEN no ⚪🍷🗿'''
-                            mensagem = bot.send_message(chat_id=chat_id, text=msg)
-                            print(Fore.GREEN + '==WIN!!!==')
-                            print(Style.RESET_ALL)
-                            return
 
 
-                    elif num[0:4] == ['P', 'B', 'V', 'V']:
+                if teste == 0:
+    #==========================================Estrategia MATADORA NO VERMELHO============================#
 
-                        if num[0:5] == ['P', 'B', 'V', 'V', 'V']:
-                            return
-
-                        elif  num[0:4] == ['P', 'B', 'V', 'V']:
+                #================================GALE 1===============================#
+                    if gale == 1:
+                        if num[0:5] == ['P', 'P', 'B', 'V', 'V']:
                             msg = '''❌LOSS'''
                             mensagem = bot.send_message(chat_id=chat_id, text=msg)
                             print(Fore.RED + '==LOSS==')
                             print(Style.RESET_ALL)
+                            gale = 0
                             return
 
+                        elif num[0:5] == ['V', 'P', 'B', 'V', 'V']:
+                            msg = '''✅G1 GREEN no 🔴🍷🗿'''
+                            mensagem = bot.send_message(chat_id=chat_id, text=msg)
+                            print(Fore.GREEN + 'WIN')
+                            print(Style.RESET_ALL)
+                            gale = 0
+                            return
+
+                        elif num[0:5] == ['B', 'P', 'B', 'V', 'V']:
+                            msg = '''✅G1 GREEN no ⚪🍷🗿'''
+                            mensagem = bot.send_message(chat_id=chat_id, text=msg)
+                            print(Fore.GREEN + 'WIN')
+                            print(Style.RESET_ALL)
+                            gale = 0
+                            return
+
+                #===============================================================#
+
+
+                    elif num[0:4] == ['P', 'B', 'V', 'V']:
+                        if num[0:5] == ['P', 'B', 'V', 'V', 'V']:
+                            return
+
+                        elif num[0:4] == ['P', 'B', 'V', 'V']:
+                            msg = '''GALE 1'''
+                            mensagem = bot.send_message(chat_id=chat_id, text=msg)
+                            print(Fore.YELLOW + '==GALE 1==')
+                            print(Style.RESET_ALL)
+                            gale = 1
+                            return
+
+
+
+                    elif num[0:4] == ['B', 'V', 'V', 'V']:
+                        return
+
+                    elif num[0:4] == ['V', 'B', 'V', 'V']:
+                        msg = '''✅ GREEN no 🔴🍷🗿'''
+                        mensagem = bot.send_message(chat_id=chat_id, text=msg)
+                        print(Fore.GREEN + '==WIN==')
+                        print(Style.RESET_ALL)
+                        return
+                    elif num[0:4] == ['B', 'B', 'V', 'V']:
+                        msg = '''✅ GREEN no ⚪🍷🗿'''
+                        mensagem = bot.send_message(chat_id=chat_id, text=msg)
+                        print(Fore.GREEN + '==WIN==')
+                        print(Style.RESET_ALL)
+                        return
 
                     elif num[0:3] == ['B', 'V', 'V']:
 
@@ -241,53 +328,74 @@ Possivel entrada no ⚫
                             return
 
                         elif num[0:3] == ['B', 'V', 'V']:
-                            msg = '''🚨Entrada confirmada!! Este é o metodo de porcentagem!!!!🚨
+                            msg = '''🚨Entrada confirmada🚨
 📌Entrar no 🔴 
 🛡️Proteger o ⚪'''
                             mensagem = bot.send_message(chat_id=chat_id, text=msg)
                             return
+#===================================================FIM==================================================#
 
-                        elif num[0:2] == ['V', 'V']:
-                            msg = '''⚠️ATENÇÃO⚠️
-Possivel entrada no 🔴 
-⏰Aguarde o sinal...'''
+                if teste == 0:
+    #==========================================Estrategia MATADORA NO PRETO============================#
+
+                #================================GALE 1===============================#
+                    if gale == 1:
+                        if num[0:5] == ['V', 'V', 'B', 'P', 'P']:
+                            msg = '''❌LOSS'''
                             mensagem = bot.send_message(chat_id=chat_id, text=msg)
-                            time.sleep(15)
-                            mensagem.delete()
-                            if resulROOL == 'Girando...':
-                               return
+                            print(Fore.RED + '==LOSS==')
+                            print(Style.RESET_ALL)
+                            gale = 0
                             return
- 
 
+                        elif num[0:5] == ['P', 'V', 'B', 'P', 'P']:
+                            msg = '''✅G1 GREEN no ⚫🍷🗿'''
+                            mensagem = bot.send_message(chat_id=chat_id, text=msg)
+                            print(Fore.GREEN + 'WIN')
+                            print(Style.RESET_ALL)
+                            gale = 0
+                            return
 
+                        elif num[0:5] == ['B', 'P', 'B', 'P', 'P']:
+                            msg = '''✅G1 GREEN no ⚪🍷🗿'''
+                            mensagem = bot.send_message(chat_id=chat_id, text=msg)
+                            print(Fore.GREEN + 'WIN')
+                            print(Style.RESET_ALL)
+                            gale = 0
+                            return
 
+                #===============================================================#
 
-
-                #elif porcentagemdepretoDivididoEmFloat > 4700.0 and porcentagemdevermelhoDivididoEmFloat < 4400.0 and porcentagemdepretoDivididoEmFloat > porcentagemdevermelhoDivididoEmFloat:
-                elif teste == 0:
-                    if  num[0:4] == ['P', 'B', 'P', 'P']:
-                        msg = '''✅ GREEN no ⚫🍷🗿'''
-                        mensagem = bot.send_message(chat_id=chat_id, text=msg)
-                        print(Fore.GREEN + '==WIN!!!==')
-                        print(Style.RESET_ALL)
-                        return
-                    elif  num[0:4] == ['B', 'B', 'P', 'P']:
-                        msg = '''✅ GREEN no ⚪🍷🗿'''
-                        mensagem = bot.send_message(chat_id=chat_id, text=msg)
-                        print(Fore.GREEN + '==WIN!!!==')
-                        print(Style.RESET_ALL)
-                        return
 
                     elif num[0:4] == ['V', 'B', 'P', 'P']:
                         if num[0:5] == ['V', 'B', 'P', 'P', 'P']:
                             return
 
-                        elif  num[0:4] == ['V', 'B', 'P', 'P']:
-                            msg = '''❌LOSS'''
+                        elif num[0:4] == ['V', 'B', 'P', 'P']:
+                            msg = '''GALE 1'''
                             mensagem = bot.send_message(chat_id=chat_id, text=msg)
-                            print(Fore.RED + '==LOSS==')
+                            print(Fore.YELLOW + '==GALE 1==')
                             print(Style.RESET_ALL)
+                            gale = 1
                             return
+
+
+
+                    elif num[0:4] == ['B', 'P', 'P', 'P']:
+                        return
+
+                    elif num[0:4] == ['P', 'B', 'P', 'P']:
+                        msg = '''✅ GREEN no ⚫🍷🗿'''
+                        mensagem = bot.send_message(chat_id=chat_id, text=msg)
+                        print(Fore.GREEN + '==WIN==')
+                        print(Style.RESET_ALL)
+                        return
+                    elif num[0:4] == ['B', 'B', 'P', 'P']:
+                        msg = '''✅ GREEN no ⚪🍷🗿'''
+                        mensagem = bot.send_message(chat_id=chat_id, text=msg)
+                        print(Fore.GREEN + '==WIN==')
+                        print(Style.RESET_ALL)
+                        return
 
                     elif num[0:3] == ['B', 'P', 'P']:
 
@@ -295,23 +403,12 @@ Possivel entrada no 🔴
                             return
 
                         elif num[0:3] == ['B', 'P', 'P']:
-                            msg = '''🚨Entrada confirmada!! Este é o metodo de porcentagem!!!!🚨
+                            msg = '''🚨Entrada confirmada🚨
 📌Entrar no ⚫ 
 🛡️Proteger o ⚪'''
                             mensagem = bot.send_message(chat_id=chat_id, text=msg)
                             return
-
-                        elif num[0:2] == ['P', 'P']:
-                            msg = '''⚠️ATENÇÃO⚠️
-Possivel entrada no ⚫ 
-⏰Aguarde o sinal...'''
-                            mensagem = bot.send_message(chat_id=chat_id, text=msg)
-                            time.sleep(15)
-                            mensagem.delete()
-                            if resulROOL == 'Girando...':
-                                return
-                            return
-    #==========================================FIM========================================#
+#===================================================FIM==================================================#
 
             foradogiro = 0
             resultado(ray)
@@ -326,7 +423,6 @@ Possivel entrada no ⚫
         semutilidade = 0
     #finally:
         #print('FIM.')
-
 
 nav.quit()
 #pegaporcentagem.quit()
