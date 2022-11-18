@@ -10,38 +10,43 @@ from bs4 import BeautifulSoup
 from colorama import Fore, Back, Style, init
 import re
 
-py = "190.63.35.30:9812"
+#py = "190.63.35.30:9812"
 chrome_options = Options()
 #chrome_options.add_argument('--headless')
 chrome_options.add_argument('--no-sandbox')
 chrome_options.add_argument('--disable-dev-shm-usage')
 chrome_options.add_argument('--disable-gpu')
-chrome_options.add_argument('--proxy-server=%s' % py)
+#chrome_options.add_argument('--proxy-server=%s' % py)
+
+try:
+    nav = requests.Session()
+    nav.proxies = {"http": "190.63.35.30:9812"}
 
 
-#nav = requests.Session()
-#nav.proxies = {"https": "47.241.165.133:443"}
+    pegaporcentagem = requests.Session()
+    pegaporcentagem.proxies = {"http": "190.63.35.30:9812"}
+
+    token = '5744690430:AAHdhSKGoDml-c-6jDoAXsTZrZ7py-uVryU'
+    chat_id = '-1001896645285'
+    bot = telegram.Bot(token)
 
 
-#pegaporcentagem = requests.Session()
-#pegaporcentagem.proxies = {"http": "47.241.165.133:443"}
+    nav = webdriver.Chrome(options = chrome_options)
+    nav.get('https://blaze.com/pt/games/double')
 
-token = '5744690430:AAHdhSKGoDml-c-6jDoAXsTZrZ7py-uVryU'
-chat_id = '-1001896645285'
-bot = telegram.Bot(token)
-
-
-nav = webdriver.Chrome(options = chrome_options)
-nav.get('https://blaze.com/pt/games/double')
-
-pegaporcentagem = webdriver.Chrome(options = chrome_options)
-pegaporcentagem.get('https://tipminer.com/blaze/double')
+    pegaporcentagem = webdriver.Chrome(options = chrome_options)
+    pegaporcentagem.get('https://tipminer.com/blaze/double')
 
 
-foradogiro = 0
-semutilidade = 0
-gale = 0
-teste = 0
+    foradogiro = 0
+    semutilidade = 0
+    gale = 0
+    teste = 0
+
+except NameError as erro:
+    semutilidade = 0
+except Exception as erro:
+    semutilidade = 0
 
 
 os.system('cls') or None
