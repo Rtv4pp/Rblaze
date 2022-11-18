@@ -10,21 +10,21 @@ from bs4 import BeautifulSoup
 from colorama import Fore, Back, Style, init
 import re
 
-#py = "190.63.35.30:9812"
+PROXY = '51.159.115.233:3128'
 chrome_options = Options()
-#chrome_options.add_argument('--headless')
+chrome_options.add_argument('--headless')
 chrome_options.add_argument('--no-sandbox')
 chrome_options.add_argument('--disable-dev-shm-usage')
 chrome_options.add_argument('--disable-gpu')
-#chrome_options.add_argument('--proxy-server=%s' % py)
+chrome_options.add_argument(f'--proxy-server={PROXY}')
 
 try:
-    nav = requests.Session()
-    nav.proxies = {"http": "190.63.35.30:9812"}
+    #nav = requests.Session()
+    #nav.proxies = {"http": "191.242.187.82:3218"}
 
 
-    pegaporcentagem = requests.Session()
-    pegaporcentagem.proxies = {"http": "190.63.35.30:9812"}
+    #pegaporcentagem = requests.Session()
+    #pegaporcentagem.proxies = {"http": "191.242.187.82:3218"}
 
     token = '5744690430:AAHdhSKGoDml-c-6jDoAXsTZrZ7py-uVryU'
     chat_id = '-1001896645285'
@@ -45,9 +45,10 @@ try:
 
 except NameError as erro:
     semutilidade = 0
+    print('VIXI deu o erro 1')
 except Exception as erro:
     semutilidade = 0
-
+    print('VIXI deu o erro 2')
 
 os.system('cls') or None
 print(Fore.GREEN + 'BOT INICIADO!')
