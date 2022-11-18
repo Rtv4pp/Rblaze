@@ -12,7 +12,7 @@ import re
 
 py = '134.238.252.143:8080'
 chrome_options = Options()
-chrome_options.add_argument('--headless')
+#chrome_options.add_argument('--headless')
 chrome_options.add_argument('--no-sandbox')
 chrome_options.add_argument('--disable-dev-shm-usage')
 chrome_options.add_argument('--disable-gpu')
@@ -87,8 +87,8 @@ while True:
             def resultado(num):
                 global gale #Pra não bugar a variavel "gale"
                 
-                if porcentagemdevermelhoDivididoEmFloat > 4200.0 and porcentagemdepretoDivididoEmFloat < 4500.0 and porcentagemdevermelhoDivididoEmFloat > porcentagemdepretoDivididoEmFloat:
-                #if teste == 0:
+                #if porcentagemdevermelhoDivididoEmFloat > 4200.0 and porcentagemdepretoDivididoEmFloat < 4500.0 and porcentagemdevermelhoDivididoEmFloat > porcentagemdepretoDivididoEmFloat:
+                if teste == 0:
     #==========================================Estrategia Sequencia============================#
                 #================================GALE 1===============================#
 
@@ -182,8 +182,8 @@ Possivel entrada no 🔴
 
 
 
-                elif porcentagemdepretoDivididoEmFloat > 4700.0 and porcentagemdevermelhoDivididoEmFloat < 4400.0 and porcentagemdepretoDivididoEmFloat > porcentagemdevermelhoDivididoEmFloat:
-                #if teste == 0:
+                #elif porcentagemdepretoDivididoEmFloat > 4700.0 and porcentagemdevermelhoDivididoEmFloat < 4400.0 and porcentagemdepretoDivididoEmFloat > porcentagemdevermelhoDivididoEmFloat:
+                if teste == 0:
     #==========================================Estrategia Sequencia============================#
 
                 #================================GALE 1===============================#
@@ -280,8 +280,8 @@ Possivel entrada no ⚫
 #===================================================FIM==================================================#
 
 
-                elif porcentagemdepretoDivididoEmFloat < 4300 and porcentagemdevermelhoDivididoEmFloat > 4500:
-                #if teste == 0:
+                #elif porcentagemdepretoDivididoEmFloat < 4300 and porcentagemdevermelhoDivididoEmFloat > 4500:
+                if teste == 0:
     #==========================================Estrategia MATADORA NO VERMELHO============================#
 
                 #================================GALE 1===============================#
@@ -359,8 +359,8 @@ Possivel entrada no ⚫
 #===================================================FIM==================================================#
 
 
-                elif porcentagemdepretoDivididoEmFloat > 4500 and porcentagemdevermelhoDivididoEmFloat < 4300:
-                #if teste == 0:
+                #elif porcentagemdepretoDivididoEmFloat > 4500 and porcentagemdevermelhoDivididoEmFloat < 4300:
+                if teste == 0:
     #==========================================Estrategia MATADORA NO PRETO============================#
 
                 #================================GALE 1===============================#
