@@ -10,7 +10,7 @@ from bs4 import BeautifulSoup
 from colorama import Fore, Back, Style, init
 import re
 
-py = '134.238.252.143:8080'
+py = '179.160.148.30:8080'
 chrome_options = Options()
 #chrome_options.add_argument('--headless')
 chrome_options.add_argument('--no-sandbox')
