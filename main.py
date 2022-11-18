@@ -10,27 +10,27 @@ from bs4 import BeautifulSoup
 from colorama import Fore, Back, Style, init
 import re
 
-py = '157.100.12.138:999'
+#py = '157.100.12.138:999'
 chrome_options = Options()
 #chrome_options.add_argument('--headless')
 chrome_options.add_argument('--no-sandbox')
 chrome_options.add_argument('--disable-dev-shm-usage')
 chrome_options.add_argument('--disable-gpu')
-chrome_options.add_argument('--proxy-server=%s' % py)
+#chrome_options.add_argument('--proxy-server=%s' % py)
 
 token = '5744690430:AAHdhSKGoDml-c-6jDoAXsTZrZ7py-uVryU'
 chat_id = '-1001896645285'
 bot = telegram.Bot(token)
 
 
-nav = webdriver.Chrome(options = chrome_options)
-nav.get('https://blaze.com/pt/games/double')
+#nav = webdriver.Chrome(options = chrome_options)
+#nav.get('https://blaze.com/pt/games/double')
 
 pegaporcentagem = webdriver.Chrome(options = chrome_options)
 pegaporcentagem.get('https://tipminer.com/blaze/double')
 
 
-foradogiro = 0
+foradogiro = 1
 semutilidade = 0
 gale = 0
 teste = 0
@@ -80,9 +80,7 @@ while True:
 
             ray.append(val)
 
-        if resulROOL == 'Girando...':
-            foradogiro = 1
-        if foradogiro == 1 and resulROOL != 'Girando...':
+        if foradogiro == 1:
 
             def resultado(num):
                 global gale #Pra não bugar a variavel "gale"
@@ -437,7 +435,7 @@ Possivel entrada no ⚫
                             return
 #===================================================FIM==================================================#
 
-            foradogiro = 0
+            #foradogiro = 0
             resultado(ray)
             print(Fore.BLUE)
             print('Porcentagem preto:', porcentagemdepretoDivididoEmFloat)
@@ -455,5 +453,4 @@ Possivel entrada no ⚫
     #finally:
         #print('FIM.')
 
-nav.quit()
-#pegaporcentagem.quit()
+pegaporcentagem.quit()
