@@ -53,6 +53,13 @@ while True:
 
             ray.append(val)
 
+    except NameError as erro:
+        semutilidade = 0
+    except Exception as erro:
+        semutilidade = 0
+    #finally:
+        #print('FIM.')
+        
         if resulROOL == 'Girando...':
             foradogiro = 1
         if foradogiro == 1 and resulROOL != 'Girando...':
@@ -358,14 +365,6 @@ Possivel entrada no ⚫
 
             foradogiro = 0
             resultado(ray)
-
-
-    except NameError as erro:
-        semutilidade = 0
-    except Exception as erro:
-        semutilidade = 0
-    #finally:
-        #print('FIM.')
 
 nav.quit()
 #pegaporcentagem.quit()
